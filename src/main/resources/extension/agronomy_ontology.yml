@@ -40,6 +40,15 @@ extension:
         - lang: fr
           desc: "Un trait de teneur en minéraux et en ions (TO:0000465) qui est la quantité d'azote (CHEBI:51143) dans une structure végétale (PO:0009011)."
       dinaComponent: "MATERIAL_SAMPLE"
+    - key: "phosphorus_content"
+      name: "phosphorus content"
+      term: "http://purl.obolibrary.org/obo/TO_0001024"
+      multilingualDescription.descriptions:
+        - lang: en
+          desc: "A mineral and ion content trait (TO:0000465) which is the phosphorus cation (CHEBI:33467) composition in a plant structure (PO:0009011). [database_cross_reference: TO:cooperl][database_cross_reference: Gramene:pankaj_jaiswal]"
+        - lang: fr
+          desc: "Un trait de teneur en minéraux et en ions (TO:0000465) qui est la composition de phosphore cation (CHEBI:33467) dans une structure végétale (PO:0009011). [database_cross_reference: TO:cooperl][database_cross_reference: Gramene:pankaj_jaiswal]"
+      dinaComponent: "MATERIAL_SAMPLE"
     - key: "1000_grain_weight"
       name: "1000-grain weight"
       term: "http://purl.obolibrary.org/obo/TO_0000382"
