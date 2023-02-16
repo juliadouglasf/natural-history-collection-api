@@ -1,5 +1,6 @@
 package ca.gc.aafc.collection.api;
 
+import ca.gc.aafc.collection.api.config.CollectionVocabularyConfiguration;
 import ca.gc.aafc.collection.api.entities.MaterialSample;
 import ca.gc.aafc.dina.i18n.MultilingualTitle;
 import org.apache.commons.lang3.StringUtils;
@@ -10,7 +11,6 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -65,6 +65,12 @@ public class VocabularyConfigurationTest extends CollectionModuleBaseIT {
   }
 
   @Test
+  void unitsOfMeasurement() {
+    List<CollectionVocabularyConfiguration.CollectionVocabularyElement> unitsOfMeasurement = vocabularyConfiguration.getVocabulary().get("unitsOfMeasurement");
+    assertEquals(4, unitsOfMeasurement.size());
+  }
+
+  @Test
   void associationType() {
     List<CollectionVocabularyConfiguration.CollectionVocabularyElement> associationType = vocabularyConfiguration.getVocabulary().get("associationType");
     assertEquals(10, associationType.size());
@@ -81,7 +87,7 @@ public class VocabularyConfigurationTest extends CollectionModuleBaseIT {
 
     List<MaterialSample.MaterialSampleType> fromVocabularyFile = materialSampleType.stream()
         .map(mst -> MaterialSample.MaterialSampleType.fromString(mst.getName()).orElse(null))
-        .collect(Collectors.toList());
+        .toList();
 
     assertArrayEquals(MaterialSample.MaterialSampleType.values(), fromVocabularyFile.toArray());
 
